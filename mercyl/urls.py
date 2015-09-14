@@ -13,6 +13,7 @@ urlpatterns = patterns('',
     url(r'^$', 'products.views.home', name='home'),
     url(r'^aboutus$', 'products.views.aboutus', name='aboutus'),
     url(r'^contact', 'products.views.contact', name='contact'),
+    url(r'^googlec9c190dd36b71d8b.html/$', 'products.views.google', name='google'),
     url(r'^products/(?P<machinetype>[\w-]+)/$', 'products.views.list_machines', name='list_machines'),
     url(r'^product/(?P<slug>[\w-]+)/$', 'products.views.single', name='single'),
 

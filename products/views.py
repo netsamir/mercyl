@@ -20,7 +20,7 @@ def home(request):
 		count_stock = Product.objects.filter(machinetype=key).count()
 		stock[key] = count_stock
 
-	context = {"products": products, "stock": stock}	
+	context = {"products": products, "stock": stock}
 	template ='home.html'
 	return render(request, template, context)
 
@@ -29,6 +29,9 @@ def aboutus(request):
 	template ='aboutus.html'
 	return render(request, template, context)
 
+def google(request):
+    return render(request, "googlec9c190dd36b71d8b.html", locals())
+
 def contact(request):
 	context = locals()
 	template ='contact.html'
@@ -36,16 +39,16 @@ def contact(request):
 
 def list_machines(request, machinetype):
 	products = Product.objects.filter(machinetype=machinetype.upper())
-	context = {"products": products}	
+	context = {"products": products}
 	template ='products/list_machines.html'
 	return render(request, template, context)
 
 def single(request, slug):
 	try:
-		product = Product.objects.get(slug=slug)		
+		product = Product.objects.get(slug=slug)
 		images = ProductImage.objects.filter(product=product)
 		context = {'product': product, "images": images}
-		template = 'products/single.html'	
+		template = 'products/single.html'
 		return render(request, template, context)
 	except:
 		raise Http404
